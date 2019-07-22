@@ -3,11 +3,11 @@ const gulp = require('gulp');
 // const sass = require('gulp-sass');
 // const concat = require('gulp-concat');
 // const uglify = require('gulp-uglify');
-// const cleanCSS = require('gulp-clean-css');
-// const browserSync = require('browser-sync').create();
+const cleanCSS = require('gulp-clean-css');
+const browserSync = require('browser-sync').create();
 // const autoprefixer = require('gulp-autoprefixer');
-// const gulpif = require('gulp-if');
-// const del = require('del');
+const gulpif = require('gulp-if');
+const del = require('del');
 const gulpLoadPlugins = require('gulp-load-plugins');
 var plugins = gulpLoadPlugins();
 let isProd = true;
@@ -25,10 +25,10 @@ gulp.task('php', function () {
 gulp.task('styles', function () {
   return gulp.src('app/scss/**/*.scss')
   .pipe(plugins.sass())
-  .pipe(plugins.gulpif(isProd, autoprefixer({
+  .pipe(gulpif(isProd, plugins.autoprefixer({
     overrideBrowserslist : ['last 15 versions', '> 1%', 'ie 8', 'ie 7']
   })))
-  .pipe(plugins.gulpif(isProd, cleanCSS()))
+  .pipe(gulpif(isProd, cleanCSS()))
   .pipe(gulp.dest('public/css'));
 })
 
@@ -142,12 +142,12 @@ gulp.task('htaccess', function () {
 // });
 
 gulp.task('serve', function() { // Создаем таск browser-sync
-  plugins.browserSync.init({
+  browserSync.init({
       server: {
         baseDir:'public'
       }
   });
-  plugins.browserSync.watch('public/**/*.*').on('change', browserSync.reload);
+  browserSync.watch('public/**/*.*').on('change', browserSync.reload);
 });
 
 gulp.task('build', gulp.series('clean', 'pages', 'styles', 'htaccess', 'fonts', 'php', 'scripts', 'img', 'libs'));
