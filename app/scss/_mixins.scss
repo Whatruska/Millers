@@ -1,0 +1,25 @@
+@mixin font($family, $size, $color){
+  font-family: $family;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin transition($duration, $property, $timing){
+  transition-duration: $duration;
+  transition-property: $property;
+  transition-timing-function: $timing;
+}
+
+@mixin defaultTransition(){
+  @include transition(
+    0.5s,
+    all,
+    ease-in-out
+  )
+}
+
+@mixin addBlock(){
+  content: "";
+  display: block;
+  position: relative;
+}

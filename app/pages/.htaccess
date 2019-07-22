@@ -1,0 +1,4 @@
+ServerSignature Off
+AddDefaultCharset UTF-8
+ErrorDocument 404 /web_blog/public/pages/error.php
+ErrorDocument 403 /web_blog/public/pages/error.php

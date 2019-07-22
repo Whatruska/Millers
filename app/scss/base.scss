@@ -1,0 +1,56 @@
+@import'mixins';
+@import'vars';
+
+@import'../../libs/bootstrap/scss/bootstrap-grid.scss';
+
+@import'../../libs/Font-Awesome/scss/fontawesome.scss';
+@import'../../libs/Font-Awesome/scss/brands.scss';
+@import'../../libs/Font-Awesome/scss/regular.scss';
+
+@import'../../libs/css-hamburgers/_sass/hamburgers/hamburgers.scss';
+@import'../../libs/fotorama/fotorama.css';
+
+@import'../../libs/selectize/dist/css/selectize.css';
+@import'../../libs/selectize/dist/css/selectize.bootstrap3.css';
+
+%shadow{
+  box-shadow: 0 8px 10px black;
+}
+
+ul{
+  list-style: none;
+}
+
+html {
+  position:relative;
+   min-height:100%;
+ }
+
+body {
+  height: 100%;
+  min-width:900px;
+}
+
+.footer{
+  position:absolute;
+  bottom: 0;
+  z-index: 100000;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.container-fluid{
+  padding: 0px 0px;
+  width: 100%;
+}
+
+.textarea{
+  resize: none;
+  outline: none;
+}
+
+hr{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
